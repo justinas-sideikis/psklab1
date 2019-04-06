@@ -10,8 +10,7 @@
   <packaging>war</packaging>
 
   <name>psklab1 Maven Webapp</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <url>localhost:8080/</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -23,15 +22,21 @@
     <dependency>
       <groupId>javax</groupId>
       <artifactId>javaee-web-api</artifactId>
-      <version>7.0</version>
+      <version>8.0.1-b5</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>javax</groupId>
       <artifactId>javaee-web-api</artifactId>
-      <version>7.0</version>
+      <version>8.0.1-b5</version>
       <classifier>javadoc</classifier>
       <scope>provided</scope>
+    </dependency>
+    <!--h2 database-->
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>1.4.199</version>
     </dependency>
   </dependencies>
 

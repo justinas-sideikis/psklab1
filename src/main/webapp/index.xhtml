@@ -5,11 +5,16 @@
 >
     <h:head/>
     <h:body>
-        <h2>Workers!</h2>
-        <ul>
-            <ui:repeat value="#{workers.workers}" var="worker">
+        <h2>Sutapimas!?!?!?</h2>
+        <ol>
+            <ui:repeat value="#{workers.allWorkers}" var="worker">
                 <li>#{worker.name}</li>
             </ui:repeat>
-        </ul>
+        </ol>
+        <h:form>
+            <h:inputText value="#{workers.workerToCreate.name}" required="true" />
+            <h:inputText value="#{workers.workerToCreate.pin}" required="true" />
+            <h:commandButton value="Add new worker" action="#{workers.createWorker}" />
+        </h:form>
     </h:body>
 </html>
