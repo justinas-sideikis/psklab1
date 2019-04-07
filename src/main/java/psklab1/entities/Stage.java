@@ -1,7 +1,9 @@
 package psklab1.entities;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -9,8 +11,11 @@ import java.util.List;
 
 @Entity
 @NamedQuery(name = "Stage.getAll", query = "select a from Stage as a")
-@Setter @Getter
 @Table(name = "STAGE")
+@Getter
+@Setter
+@EqualsAndHashCode(of = "id")
+@ToString(of = {"id", "name"})
 public class Stage implements Serializable {
 
     @Id

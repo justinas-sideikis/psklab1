@@ -1,7 +1,9 @@
 package psklab1.entities;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
@@ -9,7 +11,11 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "TEAM")
-@Getter @Setter
+@NamedQuery(name = "Team.getAll", query = "select a from Team as a")
+@Getter
+@Setter
+@EqualsAndHashCode(of = "id")
+@ToString(of = {"id", "name"})
 public class Team {
 
     @Id
@@ -25,19 +31,5 @@ public class Team {
     private List<Stage> stages;
 
     public Team(){
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Team team = (Team) o;
-        return Objects.equals(name, team.name);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(name);
     }
 }

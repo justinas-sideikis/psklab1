@@ -1,7 +1,9 @@
 package psklab1.entities;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -13,7 +15,10 @@ import java.util.Objects;
         @NamedQuery(name = "Driver.findAll", query = "select a from Driver as a")
 })
 @Table(name = "DRIVER")
-@Getter @Setter
+@Getter
+@Setter
+@EqualsAndHashCode(of = "id")
+@ToString(of = {"id", "name", "pin", "team"})
 public class Driver implements Serializable {
 
     @Id
@@ -30,19 +35,5 @@ public class Driver implements Serializable {
     private Team team;
 
     public Driver() {
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Driver worker = (Driver) obj;
-        return Objects.equals(pin, worker.pin) &&
-                Objects.equals(name, worker.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(pin, name);
     }
 }
