@@ -21,6 +21,9 @@ public class Team {
     @OneToMany(mappedBy = "team")
     private List<Driver> drivers;
 
+    @ManyToMany
+    private List<Stage> stages;
+
     public Team(){
     }
 
