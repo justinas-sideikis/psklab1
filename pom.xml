@@ -32,11 +32,16 @@
       <classifier>javadoc</classifier>
       <scope>provided</scope>
     </dependency>
-    <!--h2 database-->
     <dependency>
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
       <version>1.4.199</version>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.6</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 

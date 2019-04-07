@@ -1,5 +1,8 @@
 package psklab1.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
@@ -10,6 +13,7 @@ import java.util.Objects;
         @NamedQuery(name = "Driver.findAll", query = "select a from Driver as a")
 })
 @Table(name = "DRIVER")
+@Getter @Setter
 public class Driver implements Serializable {
 
     @Id
@@ -21,28 +25,11 @@ public class Driver implements Serializable {
     @Column(name = "NAME")
     private String name;
 
+    @ManyToOne
+    @JoinColumn(name = "TEAM_ID")
+    private Team team;
+
     public Driver() {
-    }
-
-    public Driver(String pin, String name) {
-        this.pin = pin;
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPin() {
-        return pin;
-    }
-
-    public void setPin(String pin) {
-        this.pin = pin;
     }
 
     @Override
