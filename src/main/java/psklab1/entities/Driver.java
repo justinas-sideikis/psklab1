@@ -7,10 +7,10 @@ import java.util.Objects;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Worker.findAll", query = "select a from Worker as a")
+        @NamedQuery(name = "Driver.findAll", query = "select a from Driver as a")
 })
-@Table(name = "WORKER")
-public class Worker implements Serializable {
+@Table(name = "DRIVER")
+public class Driver implements Serializable {
 
     @Id
     @Size(max = 11, min = 11)
@@ -21,10 +21,10 @@ public class Worker implements Serializable {
     @Column(name = "NAME")
     private String name;
 
-    public Worker() {
+    public Driver() {
     }
 
-    public Worker(String pin, String name) {
+    public Driver(String pin, String name) {
         this.pin = pin;
         this.name = name;
     }
@@ -49,7 +49,7 @@ public class Worker implements Serializable {
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
-        Worker worker = (Worker) obj;
+        Driver worker = (Driver) obj;
         return Objects.equals(pin, worker.pin) &&
                 Objects.equals(name, worker.name);
     }

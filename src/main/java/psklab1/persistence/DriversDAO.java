@@ -1,6 +1,6 @@
 package psklab1.persistence;
 
-import psklab1.entities.Worker;
+import psklab1.entities.Driver;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
@@ -8,19 +8,19 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @ApplicationScoped
-public class WorkersDAO {
+public class DriversDAO {
     @PersistenceContext
     private EntityManager em;
 
-    public List<Worker> loadAll() {
-        return em.createNamedQuery("Worker.findAll", Worker.class).getResultList();
+    public List<Driver> loadAll() {
+        return em.createNamedQuery("Driver.findAll", Driver.class).getResultList();
     }
 
     public void setEm(EntityManager em) {
         this.em = em;
     }
 
-    public void persist(Worker worker){
-        this.em.persist(worker);
+    public void persist(Driver driver){
+        this.em.persist(driver);
     }
 }
