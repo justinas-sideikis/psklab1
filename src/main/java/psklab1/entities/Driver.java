@@ -8,17 +8,19 @@ import lombok.ToString;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.util.Objects;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Driver.findAll", query = "select a from Driver as a")
+        @NamedQuery(name = "Driver.getAll", query = "select a from Driver as a"),
+        @NamedQuery(name = "Driver.byPin", query = "select a from Driver as a where a.pin = :pin"),
+        @NamedQuery(name = "Driver.byTeam", query = "select d from Driver as d where d.team.id = :teamId"),
+        @NamedQuery(name = "Driver.byStage", query = "select t.drivers from Team t where exists (select s from Stage as s where s.id = :stageId)")
 })
 @Table(name = "DRIVER")
 @Getter
 @Setter
-@EqualsAndHashCode(of = "id")
-@ToString(of = {"id", "name", "pin", "team"})
+@EqualsAndHashCode(of = "pin")
+@ToString(of = {"name", "pin", "team"})
 public class Driver implements Serializable {
 
     @Id

@@ -7,21 +7,26 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Objects;
 
 @Entity
 @Table(name = "TEAM")
-@NamedQuery(name = "Team.getAll", query = "select a from Team as a")
+@NamedQueries({
+        @NamedQuery(name = "Team.getAll", query = "select t from Team as t"),
+        @NamedQuery(name = "Team.byId", query = "select t from Team as t where t.id = :id"),
+        @NamedQuery(name = "Team.byDriver", query = "select d.team from Driver as d where d.pin = :driverPin"),
+        @NamedQuery(name = "Team.byStage", query = "select s.teams from Stage as s where s.id = :stageId")
+})
 @Getter
 @Setter
-@EqualsAndHashCode(of = "id")
+@EqualsAndHashCode(of = {"id", "name"})
 @ToString(of = {"id", "name"})
 public class Team {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Integer id;
 
+    @Column(name = "NAME")
     private String name;
 
     @OneToMany(mappedBy = "team")

@@ -1,5 +1,7 @@
 package psklab1.usecases;
 
+import lombok.Getter;
+import lombok.Setter;
 import psklab1.entities.Driver;
 import psklab1.persistence.DriversDAO;
 
@@ -15,8 +17,10 @@ public class Drivers implements Serializable {
     @Inject
     private DriversDAO driversDAO;
 
+    @Getter @Setter
     private Driver driverToCreate = new Driver();
 
+    @Getter
     private List<Driver> allDrivers;
 
     @PostConstruct
@@ -37,10 +41,6 @@ public class Drivers implements Serializable {
         this.driversDAO.persist(driverToCreate);
 
         return "success";
-    }
-
-    public Driver getDriverToCreate() {
-        return driverToCreate;
     }
 
     public void setDriverToCreate(Driver driverToCreate) {

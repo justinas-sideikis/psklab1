@@ -13,7 +13,7 @@ public class DriversDAO {
     private EntityManager em;
 
     public List<Driver> loadAll() {
-        return em.createNamedQuery("Driver.findAll", Driver.class).getResultList();
+        return em.createNamedQuery("Driver.getAll", Driver.class).getResultList();
     }
 
     public void setEm(EntityManager em) {
