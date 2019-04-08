@@ -4,10 +4,10 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <typeAlias type="psklab1.usecases.mybatis.model.Driver" alias="Driver"/>
-        <typeAlias type="psklab1.usecases.mybatis.model.Team" alias="Team"/>
-        <typeAlias type="psklab1.usecases.mybatis.model.Stage" alias="Stage"/>
-        <typeAlias type="psklab1.usecases.mybatis.model.TeamStage" alias="TeamStage"/>
+        <typeAlias type="psklab1.entities.mybatis.Driver" alias="Driver"/>
+        <typeAlias type="psklab1.entities.mybatis.Team" alias="Team"/>
+        <typeAlias type="psklab1.entities.mybatis.Stage" alias="Stage"/>
+        <typeAlias type="psklab1.entities.mybatis.TeamStage" alias="TeamStage"/>
     </typeAliases>
     <environments default="development">
         <environment id="development">
