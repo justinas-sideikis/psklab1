@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE generatorConfiguration
+    PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+    "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd"
+>
+
+<generatorConfiguration>
+    <context id="DriversDB" targetRuntime="MyBatis3Simple">
+        <jdbcConnection
+            driverClass="org.h2.Driver"
+            connectionURL="jdbc:h2:~/h2database/DriversDB;AUTO_SERVER=TRUE;"
+            userId="as"
+            password="as"
+        >
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="psklab1.usecases.mybatis.model" targetProject="MAVEN" />
+
+        <sqlMapGenerator targetPackage="psklab1.usecases.mybatis.xml" targetProject="MAVEN" />
+        <javaClientGenerator type="XMLMAPPER" targetPackage="psklab1.usecases.mybatis.dao" targetProject="MAVEN" />
+
+
+        <table schema="public" tableName="driver">
+            <generatedKey column="pin" identity="true" sqlStatement="JDBC" />
+        </table>
+        <table schema="public" tableName="team">
+            <generatedKey column="id" identity="true" sqlStatement="JDBC" />
+        </table>
+        <table schema="public" tableName="stage">
+            <generatedKey column="id" identity="true" sqlStatement="JDBC" />
+        </table>
+        <table schema="public" tableName="team_stage" ></table>
+    </context>
+</generatorConfiguration>

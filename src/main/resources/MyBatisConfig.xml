@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias type="psklab1.usecases.mybatis.model.Driver" alias="Driver"/>
+        <typeAlias type="psklab1.usecases.mybatis.model.Team" alias="Team"/>
+        <typeAlias type="psklab1.usecases.mybatis.model.Stage" alias="Stage"/>
+        <typeAlias type="psklab1.usecases.mybatis.model.TeamStage" alias="TeamStage"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="MANAGED"/>
+            <dataSource type="JNDI">
+                <property name="data_source" value="openejb:Resource/championshipDatabase"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mybatis.xml/DriverMapper.xml"/>
+        <mapper resource="mybatis.xml/TeamMapper.xml"/>
+        <mapper resource="mybatis.xml/StageMapper.xml"/>
+        <mapper resource="mybatis.xml/TeamStageMapper.xml"/>
+    </mappers>
+</configuration>
