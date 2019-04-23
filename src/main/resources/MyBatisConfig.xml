@@ -18,9 +18,9 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="mybatis.xml/DriverMapper.xml"/>
-        <mapper resource="mybatis.xml/TeamMapper.xml"/>
-        <mapper resource="mybatis.xml/StageMapper.xml"/>
-        <mapper resource="mybatis.xml/TeamStageMapper.xml"/>
+        <mapper resource="mybatis/xml/DriverMapper.xml"/>
+        <mapper resource="mybatis/xml/TeamMapper.xml"/>
+        <mapper resource="mybatis/xml/StageMapper.xml"/>
+        <mapper resource="mybatis/xml/TeamStageMapper.xml"/>
     </mappers>
 </configuration>

@@ -1,5 +1,6 @@
 package psklab1.persistence;
 
+import lombok.Setter;
 import psklab1.entities.Team;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -10,17 +11,16 @@ import java.util.List;
 @ApplicationScoped
 public class TeamsDAO {
     @PersistenceContext
+    @Setter
     private EntityManager em;
 
     public List<Team> loadAll() {
         return em.createNamedQuery("Team.getAll", Team.class).getResultList();
     }
 
-    public void setEm(EntityManager em) {
-        this.em = em;
-    }
-
-    public void persist(Team team){
+    public String persist(Team team){
         this.em.persist(team);
+
+        return "success";
     }
 }

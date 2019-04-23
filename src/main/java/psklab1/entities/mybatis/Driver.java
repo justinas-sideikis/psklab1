@@ -1,5 +1,10 @@
 package psklab1.entities.mybatis;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Driver {
     /**
      *

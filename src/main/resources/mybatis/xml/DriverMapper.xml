@@ -59,4 +59,9 @@
     select PIN, NAME, TEAM_ID
     from PUBLIC.DRIVER
   </select>
+  <select id="selectByFK" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select PIN, NAME, TEAM_ID
+    from PUBLIC.DRIVER
+    where TEAM_ID = #{teamId,jdbcType=VARCHAR}
+  </select>
 </mapper>

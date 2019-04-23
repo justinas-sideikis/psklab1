@@ -10,12 +10,7 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
-@NamedQueries({
-        @NamedQuery(name = "Driver.getAll", query = "select a from Driver as a"),
-        @NamedQuery(name = "Driver.byPin", query = "select a from Driver as a where a.pin = :pin"),
-        @NamedQuery(name = "Driver.byTeam", query = "select d from Driver as d where d.team.id = :teamId"),
-        @NamedQuery(name = "Driver.byStage", query = "select t.drivers from Team t where exists (select s from Stage as s where s.id = :stageId)")
-})
+@NamedQuery(name = "Driver.getAll", query = "select a from Driver as a")
 @Table(name = "DRIVER")
 @Getter
 @Setter
