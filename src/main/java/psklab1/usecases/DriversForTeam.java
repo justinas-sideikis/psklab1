@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import psklab1.entities.Team;
 import psklab1.entities.mybatis.Driver;
+import psklab1.interceptor.LoggedInvocation;
 import psklab1.persistence.TeamsDAO;
 import psklab1.persistence.mybatis.DriverMapper;
 import psklab1.remote.Remote;
@@ -64,6 +65,7 @@ public class DriversForTeam implements Serializable {
     }
 
     @Transactional
+    @LoggedInvocation
     public String edit() {
 
         try{

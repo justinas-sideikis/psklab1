@@ -3,6 +3,7 @@ package psklab1.usecases;
 import lombok.Getter;
 import lombok.Setter;
 import psklab1.entities.Team;
+import psklab1.interceptor.LoggedInvocation;
 import psklab1.persistence.TeamsDAO;
 import psklab1.remote.Remote;
 
@@ -41,6 +42,7 @@ public class Teams implements Serializable {
     private Future<Integer> remoteUpdating = null;
 
     @Transactional
+    @LoggedInvocation
     public String createTeam(){
         this.teamsDAO.persist(teamToCreate);
         return "success";
