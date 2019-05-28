@@ -6,6 +6,7 @@ import psklab1.entities.Team;
 import psklab1.entities.mybatis.Driver;
 import psklab1.persistence.TeamsDAO;
 import psklab1.persistence.mybatis.DriverMapper;
+import psklab1.remote.Remote;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
@@ -18,6 +19,8 @@ import javax.transaction.Transactional;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 @ViewScoped
 @Named

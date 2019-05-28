@@ -17,5 +17,9 @@
             <h:inputText value="#{teams.teamToCreate.name}" required="true" />
             <h:commandButton value="Add new team" action="#{teams.createTeam}" />
         </h:form>
+        <h:form>
+            <h:commandButton value="Update remote" disabled="#{teams.remoteRequestHangs}" action="#{teams.upadteInRemote()}" />
+            <h:outputText value="#{teams.remoteRequestStatus}" />
+        </h:form>
     </h:body>
 </html>
