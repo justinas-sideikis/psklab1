@@ -27,6 +27,10 @@ public class Team {
     @OneToMany(mappedBy = "team")
     private List<Driver> drivers;
 
+    @Version
+    @Column(name = "OPT_LOCK_VERSION")
+    private Integer version;
+
     @ManyToMany
     private List<Stage> stages;
 

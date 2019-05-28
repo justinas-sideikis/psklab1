@@ -20,5 +20,12 @@
             <f:param name="teamId" value="#{driversForTeam.teamId}"/>
         </h:commandButton>
     </h:form>
+    <h:form>
+        <h:inputText value="#{driversForTeam.team.name}" required="true" />
+        <h:commandButton value="Edit trip" action="#{driversForTeam.edit}" >
+            <f:param name="teamId" value="#{driversForTeam.teamId}"/>
+        </h:commandButton>
+        <h:outputText value="Team already updated" rendered="#{param['error'] == 'opt-lock'}" />
+    </h:form>
 </h:body>
 </html>
