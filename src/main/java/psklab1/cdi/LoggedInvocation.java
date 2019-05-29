@@ -1,4 +1,4 @@
-package psklab1.interceptor;
+package psklab1.cdi;
 
 import javax.interceptor.InterceptorBinding;
 import java.lang.annotation.*;

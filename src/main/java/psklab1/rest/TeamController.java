@@ -2,6 +2,8 @@ package psklab1.rest;
 
 import lombok.Getter;
 import lombok.Setter;
+import psklab1.cdi.TimestampLogger;
+import psklab1.dto.TeamDto;
 import psklab1.entities.Team;
 import psklab1.persistence.TeamsDAO;
 
@@ -15,25 +17,28 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @ApplicationScoped
-@ApplicationPath("/api")
 @Path("/team")
-public class TeamController extends Application {
+public class TeamController {
 
     @Inject
     @Setter
     @Getter
     private TeamsDAO teamsDAO;
 
+    @Inject
+    TimestampLogger timestampLogger;
+
     @Path("/{id}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getById(@PathParam("id") final Integer id) {
+        timestampLogger.logTimestamp();
         Team team = teamsDAO.load(id);
         if (team == null) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
 
-        return Response.ok(team.getName()).build();
+        return Response.ok(TeamDto.ToDto(team)).build();
     }
 
     @Path("/{id}")
@@ -42,7 +47,7 @@ public class TeamController extends Application {
     @Transactional
     public Response update(
             @PathParam("id") final Integer teamId,
-            Team team) {
+            TeamDto team) {
         try {
             Team currentTeam = teamsDAO.load(teamId);
             if (currentTeam == null) {
@@ -59,9 +64,10 @@ public class TeamController extends Application {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
-    public Response create(Team team) {
+    public Response create(TeamDto team) {
         try {
-            return Response.ok(teamsDAO.update(team)).build();
+            Team created = TeamDto.ToCteatedEntity(team);
+            return Response.ok(teamsDAO.update(created)).build();
         } catch (Exception ex) {
             return  Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }

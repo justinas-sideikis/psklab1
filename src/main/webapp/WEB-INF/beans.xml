@@ -7,6 +7,12 @@
         bean-discovery-mode="annotated">
 
     <interceptors>
-        <class>psklab1.interceptor.MethodLogger</class>
+        <class>psklab1.cdi.InterceptLogger</class>
     </interceptors>
+    <decorators>
+        <class>psklab1.cdi.DecoratorLogger</class>
+    </decorators>
+    <alternatives>
+        <class>psklab1.cdi.DateLoggerImpl</class>
+    </alternatives>
 </beans>

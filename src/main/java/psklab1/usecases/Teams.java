@@ -3,13 +3,12 @@ package psklab1.usecases;
 import lombok.Getter;
 import lombok.Setter;
 import psklab1.entities.Team;
-import psklab1.interceptor.LoggedInvocation;
+import psklab1.cdi.LoggedInvocation;
 import psklab1.persistence.TeamsDAO;
-import psklab1.remote.Remote;
+import psklab1.remote.Remot;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
-import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.transaction.Transactional;
@@ -37,7 +36,7 @@ public class Teams implements Serializable {
     }
 
     @Inject
-    private Remote remote;
+    private Remot remote;
 
     private Future<Integer> remoteUpdating = null;
 
